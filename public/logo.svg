@@ -1,0 +1,21 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="gessy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#4f46e5" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#gessy-grad)" filter="url(#shadow)"/>
+  <!-- Wallet / G Icon with Coin -->
+  <circle cx="256" cy="256" r="160" fill="white" fill-opacity="0.12"/>
+  <path d="M180 180H332C345.255 180 356 190.745 356 204V308C356 321.255 345.255 332 332 332H180C166.745 332 156 321.255 156 308V204C156 190.745 166.745 180 180 180Z" fill="white"/>
+  <path d="M156 216H356V264H156V216Z" fill="#e0e7ff"/>
+  <circle cx="316" cy="280" r="18" fill="#4f46e5"/>
+  <circle cx="316" cy="280" r="8" fill="#10b981"/>
+  <!-- Sparkles -->
+  <path d="M370 140L375 155L390 160L375 165L370 180L365 165L350 160L365 155Z" fill="#fbbf24"/>
+</svg>
