@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
 declare global {
   interface Window {
@@ -26,6 +26,7 @@ interface AuthContextType {
 
 const AUTH_STORAGE_KEY = 'gessy_auth_user';
 const GOOGLE_CLIENT_ID_KEY = 'gessy_google_client_id';
+export const DEFAULT_GOOGLE_CLIENT_ID = '278063786282-qhstb3h9l0toun0dnmb3rsooc7b72ib1.apps.googleusercontent.com';
 
 export const MOCK_USER: AuthUser = {
   id: 'mock-user',
@@ -61,7 +62,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return (
       import.meta.env.VITE_GOOGLE_CLIENT_ID ||
       (typeof window !== 'undefined' ? localStorage.getItem(GOOGLE_CLIENT_ID_KEY) : null) ||
-      null
+      DEFAULT_GOOGLE_CLIENT_ID
     );
   });
 
