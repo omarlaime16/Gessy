@@ -1,5 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import {
   Sparkles,
   ArrowRight,
@@ -26,9 +26,14 @@ export const LoginPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isKeyModalOpen, setIsKeyModalOpen] = useState(false);
   const [tempClientId, setTempClientId] = useState(googleClientId || '');
-  const navigate = useNavigate();
 
   // If already authenticated, redirect directly to dashboard
+  useEffect(() => {
+    if (isAuthenticated && !isLoading) {
+      window.location.href = '/dashboard';
+    }
+  }, [isAuthenticated, isLoading]);
+
   if (isAuthenticated && !isLoading) {
     return <Navigate to="/dashboard" replace />;
   }
@@ -62,9 +67,7 @@ export const LoginPage: React.FC = () => {
     try {
       setIsSubmitting(true);
       await signInWithGoogle();
-      if (!googleClientId) {
-        navigate('/dashboard', { replace: true });
-      }
+      window.location.href = '/dashboard';
     } catch (error) {
       console.error('Error logging in:', error);
     } finally {

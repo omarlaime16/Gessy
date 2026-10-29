@@ -79,6 +79,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       };
       setUser(realUser);
       localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(realUser));
+      // Redirigir de inmediato al Dashboard tras login exitoso
+      window.location.href = '/dashboard';
     }
   }, []);
 

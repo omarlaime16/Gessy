@@ -10,6 +10,7 @@ import { BudgetsPage } from './pages/BudgetsPage';
 import { AnalysisPage } from './pages/AnalysisPage';
 import { SavingsPage } from './pages/SavingsPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
@@ -32,9 +33,10 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <ThemeProvider>
-        <AuthProvider>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <ThemeProvider>
+          <AuthProvider>
           <Routes>
             {/* Public route */}
             <Route path="/login" element={<LoginPage />} />
@@ -63,7 +65,8 @@ export const App: React.FC = () => {
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
-  );
+  </ErrorBoundary>
+);
 };
 
 export default App;
